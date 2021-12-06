@@ -1,5 +1,8 @@
 package com.letscode.conversor.temperatura;
 
+import com.letscode.conversor.temperatura.services.Calculator;
+import com.letscode.conversor.temperatura.utils.ScannerTemperature;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -13,11 +16,11 @@ public class Main {
 //
 //        Considere a conversão de 18 ºC e a precisão de duas casas decimais
 
-        final float CELSIUS = 18f;
-        final double FAHRENHEIT = (CELSIUS * 1.8f) + 32;
-        final double KELVIN = CELSIUS + 273.15f;
-        final double REAUMUR = CELSIUS * 0.8f;
-        final double RANKINE = (CELSIUS * 1.8f) + 491;
+        final float CELSIUS = ScannerTemperature.getCelsiusTemperature();
+        final double FAHRENHEIT = Calculator.convertCelsiusToFahrenheit(CELSIUS);
+        final double KELVIN = Calculator.convertCelsiusToKelvin(CELSIUS);
+        final double REAUMUR = Calculator.convertCelsiusToReamur(CELSIUS);
+        final double RANKINE = Calculator.convertCelsiusToRankine(CELSIUS);
 
         System.out.printf("Celsius: %.2f %n Kelvin: %.2f %n Réaumur: %.2f %n Rankine: %.2f %n Fahrenheit: %.2f %n", CELSIUS, KELVIN, REAUMUR, RANKINE, FAHRENHEIT);
 
